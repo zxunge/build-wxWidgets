@@ -15,7 +15,10 @@ pacman -S --noconfirm wget p7zip mingw-w64-i686-make
 # Delete the existing mingw64 at C: to avoid conflicting
 rm -rf /c/mingw64
 
+cp -r * /home/
 cd /home
+
+
 wget https://github.com/zxunge/build-FreshGCC-OldMinGW-w64/releases/download/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z
 7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
 mv gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686 mingw32

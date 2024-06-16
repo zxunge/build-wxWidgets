@@ -16,8 +16,33 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW32
 
-      - shell: powershell
-        run: |
-          gcc -v
-          Get-Package
+      - name: build wxWidgets
+        shell: msys2 {0}
+        id: buildwx
+        run: ./build.sh
+
+      - name: release
+        id: release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.buildwx.outputs.RELEASE_NAME }}
+          release_name: ${{ steps.buildwx.outputs.RELEASE_NAME }}
+          body: |
+            wxWidgets v${{ steps.buildwx.outputs.WXMSW_VERSION }}
+          
+      - name: upload
+        id: upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: ${{ steps.buildwx.outputs.OUTPUT_BINARY }}
+          asset_name: ${{ steps.buildwx.outputs.OUTPUT_NAME }}
+          asset_content_type: application/x-7z-compressed

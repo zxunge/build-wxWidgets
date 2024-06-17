@@ -44,7 +44,7 @@
 // in the version after it completely.
 //
 // Recommended setting: 0 (please update your code)
-#define WXWIN_COMPATIBILITY_3_0 1
+#define WXWIN_COMPATIBILITY_3_0 0
 
 // MSW-only: Set to 0 for accurate dialog units, else 1 for old behaviour when
 // default system font is used for wxWindow::GetCharWidth/Height() instead of
@@ -65,7 +65,7 @@
 // loss.
 //
 // Recommended setting: 0
-#define wxUSE_UNSAFE_WXSTRING_CONV 1
+#define wxUSE_UNSAFE_WXSTRING_CONV 0
 
 // If set to 1, enables "reproducible builds", i.e. build output should be
 // exactly the same if the same build is redone again. As using __DATE__ and
@@ -348,7 +348,7 @@
 //
 // Recommended setting: 1 unless compatibility with the official wxWidgets
 // build and/or the existing code is a concern.
-#define wxUSE_STD_CONTAINERS 0
+#define wxUSE_STD_CONTAINERS 1
 
 // Use standard C++ streams if 1 instead of wx streams in some places. If
 // disabled, wx streams are used everywhere and wxWidgets doesn't depend on the
@@ -1530,7 +1530,7 @@
 // ----------------------------------------------------------------------------
 
 // Set to 1 for PostScript device context.
-#define wxUSE_POSTSCRIPT  0
+#define wxUSE_POSTSCRIPT  1
 
 // Set to 1 to use font metric files in GetTextExtent
 #define wxUSE_AFM_FOR_POSTSCRIPT 1
@@ -1593,7 +1593,7 @@
 #define wxUSE_PCX           1
 
 // Set to 1 for IFF format support (Amiga format)
-#define wxUSE_IFF           0
+#define wxUSE_IFF           1
 
 // Set to 1 for XPM format support
 #define wxUSE_XPM           1
@@ -1614,10 +1614,10 @@
 // Set to 1 to enable the compilation of individual theme if wxUSE_ALL_THEMES
 // is unset, if it is set these options are not used; notice that metal theme
 // uses Win32 one
-#define wxUSE_THEME_GTK     0
-#define wxUSE_THEME_METAL   0
-#define wxUSE_THEME_MONO    0
-#define wxUSE_THEME_WIN32   0
+#define wxUSE_THEME_GTK     1
+#define wxUSE_THEME_METAL   1
+#define wxUSE_THEME_MONO    1
+#define wxUSE_THEME_WIN32   1
 
 /* --- end common options --- */
 
@@ -1821,7 +1821,7 @@
 #if defined(__VISUALC__) || defined(__MINGW64_TOOLCHAIN__)
     #define wxUSE_DBGHELP 1
 #else
-    #define wxUSE_DBGHELP 0
+    #define wxUSE_DBGHELP 1
 #endif
 
 // Set this to 1 to be able to use wxCrashReport::Generate() to create mini

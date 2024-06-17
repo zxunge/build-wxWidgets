@@ -38,13 +38,13 @@ LDFLAGS ?=
 CPP ?= $(CC) -E
 
 # What type of library to build? [0,1]
-SHARED ?= 1
+SHARED ?= 0
 
 # GTK+ toolkit version [,2]
 TOOLKIT_VERSION ?= 
 
 # Build wxUniversal instead of native port? [0,1]
-WXUNIV ?= 1
+WXUNIV ?= 0
 
 # Compile Unicode build of wxWidgets? [0,1]
 UNICODE ?= 1

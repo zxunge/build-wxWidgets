@@ -26,7 +26,7 @@ CXX = g++
 CFLAGS ?= 
 
 # Standard flags for C++ 
-CXXFLAGS ?=
+CXXFLAGS ?= -std=c++17
 
 # Standard preprocessor flags (common for CC and CXX) 
 CPPFLAGS ?= 
@@ -38,7 +38,7 @@ LDFLAGS ?=
 CPP ?= $(CC) -E
 
 # What type of library to build? [0,1]
-SHARED ?= 1
+SHARED ?= 0
 
 # GTK+ toolkit version [,2]
 TOOLKIT_VERSION ?= 
@@ -50,7 +50,7 @@ WXUNIV ?= 0
 UNICODE ?= 1
 
 # Type of compiled binaries [debug,release]
-BUILD ?= release
+BUILD ?= debug
 
 # Should debugging info be included in the executables? The default value
 # "default" means that debug info will be included if BUILD=debug
@@ -63,7 +63,7 @@ DEBUG_INFO ?= default
 DEBUG_FLAG ?= 1
 
 # Multiple libraries or single huge monolithic one? [0,1]
-MONOLITHIC ?= 1
+MONOLITHIC ?= 0
 
 # Build GUI libraries? [0,1]
 USE_GUI ?= 1
@@ -123,7 +123,7 @@ USE_CAIRO ?= 0
 OFFICIAL_BUILD ?= 0
 
 # Use this to name your customized DLLs differently 
-VENDOR ?= cb
+VENDOR ?= custom
 
 #  
 WX_FLAVOUR ?= 

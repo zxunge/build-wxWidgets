@@ -39,8 +39,8 @@ cp /home/setup.h /home/wxWidgets-${WXMSW_VERSION}/lib/
 7zr a -mx9 -mqs=on -mmt=on /home/${NAME}-${BUILD_NO}.7z /home/wxWidgets-${WXMSW_VERSION}/lib
 
 if [[ -v GITHUB_WORKFLOW ]]; then
-  echo "OUTPUT_BINARY=${HOME}/${NAME}.7z" >> $GITHUB_OUTPUT
+  echo "OUTPUT_BINARY=${HOME}/${NAME}-${BUILD_NO}.7z" >> $GITHUB_OUTPUT
   echo "RELEASE_NAME=wxWidgets-${WXMSW_VERSION}-${BUILD_NO}" >> $GITHUB_OUTPUT
   echo "WXMSW_VERSION=${WXMSW_VERSION}" >> $GITHUB_OUTPUT
-  echo "OUTPUT_NAME=${NAME}.7z" >> $GITHUB_OUTPUT
+  echo "OUTPUT_NAME=${NAME}-${BUILD_NO}.7z" >> $GITHUB_OUTPUT
 fi

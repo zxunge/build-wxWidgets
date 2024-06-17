@@ -21,9 +21,6 @@ cd /home
 
 wget https://github.com/zxunge/build-FreshGCC-OldMinGW-w64/releases/download/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z
 7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
-ls
-cd gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686
-ls
 mv gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686 mingw32
 export PATH="/home/mingw32/bin;"$PATH
 

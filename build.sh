@@ -26,6 +26,7 @@ cp -rf ./gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686/* /mingw32/
 
 wget https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2
+cp -r ./webview2 ./wxWidgets-${WXMSW_VERSION}/3rdparty/ 
 
 # Build wxWidgets
 cp -f ./setup.h ./wxWidgets-${WXMSW_VERSION}/include/wx/msw/

@@ -34,7 +34,7 @@ cd wxWidgets-${WXMSW_VERSION}/build/msw
 mingw32-make -f makefile.gcc setup_h
 mingw32-make -f makefile.gcc -j$(nproc)
 
-7zr a -mx9 -mqs=on -mmt=on /home/${NAME}.7z /home/wxWidgets-${WXMSW_VERSION}/lib
+7zr a -mx9 -mqs=on -mmt=on /home/${NAME}-${BUILD_NO}.7z /home/wxWidgets-${WXMSW_VERSION}/lib
 
 if [[ -v GITHUB_WORKFLOW ]]; then
   echo "OUTPUT_BINARY=${HOME}/${NAME}.7z" >> $GITHUB_OUTPUT

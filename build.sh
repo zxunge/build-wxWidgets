@@ -5,6 +5,7 @@ set -eux
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
 WXMSW_VERSION=3.2.5
+BUILD_NO=2
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
 
@@ -37,7 +38,7 @@ mingw32-make -f makefile.gcc -j$(nproc)
 
 if [[ -v GITHUB_WORKFLOW ]]; then
   echo "OUTPUT_BINARY=${HOME}/${NAME}.7z" >> $GITHUB_OUTPUT
-  echo "RELEASE_NAME=wxWidgets-${WXMSW_VERSION}" >> $GITHUB_OUTPUT
+  echo "RELEASE_NAME=wxWidgets-${WXMSW_VERSION}-${BUILD_NO}" >> $GITHUB_OUTPUT
   echo "WXMSW_VERSION=${WXMSW_VERSION}" >> $GITHUB_OUTPUT
   echo "OUTPUT_NAME=${NAME}.7z" >> $GITHUB_OUTPUT
 fi

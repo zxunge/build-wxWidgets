@@ -5,7 +5,7 @@ set -eux
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
 WXMSW_VERSION=3.2.5
-BUILD_NO=4
+BUILD_NO=5
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
 
@@ -33,6 +33,8 @@ cp -f ./config.gcc ./wxWidgets-${WXMSW_VERSION}/build/msw/
 cd wxWidgets-${WXMSW_VERSION}/build/msw
 mingw32-make -f makefile.gcc setup_h
 mingw32-make -f makefile.gcc -j$(nproc)
+
+cp /home/setup.h /home/wxWidgets-${WXMSW_VERSION}/lib/
 
 7zr a -mx9 -mqs=on -mmt=on /home/${NAME}-${BUILD_NO}.7z /home/wxWidgets-${WXMSW_VERSION}/lib
 

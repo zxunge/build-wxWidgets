@@ -21,7 +21,7 @@ cd /home
 
 wget https://github.com/zxunge/build-FreshGCC-OldMinGW-w64/releases/download/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z
 7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
-cp -f ./gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686/* /mingw32/
+cp -rf ./gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686/* /mingw32/
 
 wget https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2

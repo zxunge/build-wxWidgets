@@ -26,7 +26,7 @@ CXX = g++
 CFLAGS ?= 
 
 # Standard flags for C++ 
-CXXFLAGS ?= 
+CXXFLAGS ?= -std=c++17
 
 # Standard preprocessor flags (common for CC and CXX) 
 CPPFLAGS ?= 
@@ -44,13 +44,13 @@ SHARED ?= 1
 TOOLKIT_VERSION ?= 
 
 # Build wxUniversal instead of native port? [0,1]
-WXUNIV ?= 1
+WXUNIV ?= 0
 
 # Compile Unicode build of wxWidgets? [0,1]
 UNICODE ?= 1
 
 # Type of compiled binaries [debug,release]
-BUILD ?= debug
+BUILD ?= release
 
 # Should debugging info be included in the executables? The default value
 # "default" means that debug info will be included if BUILD=debug

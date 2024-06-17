@@ -13,7 +13,7 @@ pacman -Syy
 pacman -S --noconfirm wget p7zip mingw-w64-i686-make
 
 # Delete the existing mingw64 at C: to avoid conflicting
-rm -rf /c/mingw64
+rm -rf /c/mingw64/bin
 
 cp -r * /home/
 cd /home
@@ -24,8 +24,8 @@ wget https://github.com/zxunge/build-FreshGCC-OldMinGW-w64/releases/download/gcc
 ls
 cd gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686
 ls
-mv gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686 mingw32
-export PATH=$PATH";/home/mingw32/bin"
+mv gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686 mingw32
+export PATH="/home/mingw32/bin;"$PATH
 
 wget https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2

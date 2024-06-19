@@ -19,10 +19,11 @@ rm -rf /c/mingw64/bin
 cp -r * /home/
 cd /home
 
-
-wget https://github.com/zxunge/build-FreshGCC-OldMinGW-w64/releases/download/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z
-7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
-cp -rf ./gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686/* /mingw32/
+# wget https://github.com/zxunge/build-FreshGCC-OldMinGW-w64/releases/download/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}/gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z
+wget https://github.com/brechtsanders/winlibs_mingw/releases/download/9.3.0-7.0.0-sjlj-r3/winlibs-mingw-w64-i686-9.3.0-7.0.0-r3-sjlj.7z
+# 7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
+7z x winlibs-mingw-w64-i686-9.3.0-7.0.0-r3-sjlj.7z -r -o/home
+cp -rf ./mingw32/* /mingw32/
 
 wget https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2

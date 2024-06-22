@@ -26,7 +26,7 @@ CXX = g++
 CFLAGS ?= 
 
 # Standard flags for C++ 
-CXXFLAGS ?= -std=c++17
+CXXFLAGS ?= 
 
 # Standard preprocessor flags (common for CC and CXX) 
 CPPFLAGS ?= 

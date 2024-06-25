@@ -50,7 +50,7 @@ WXUNIV ?= 1
 UNICODE ?= 1
 
 # Type of compiled binaries [debug,release]
-BUILD ?= debug
+BUILD ?= release
 
 # Should debugging info be included in the executables? The default value
 # "default" means that debug info will be included if BUILD=debug

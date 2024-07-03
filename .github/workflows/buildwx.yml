@@ -19,6 +19,9 @@ jobs:
       - uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW32
+          update: true
+          install: >-
+            p7zip
 
       - name: build wxWidgets
         shell: msys2 {0}

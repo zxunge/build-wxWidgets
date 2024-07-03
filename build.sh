@@ -5,16 +5,9 @@ set -eux
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
 WXMSW_VERSION=3.2.5
-BUILD_NO=13-univ
+BUILD_NO=14-stl-cb
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
-
-# Install dependencies
-pacman -Syy
-pacman -S --noconfirm wget p7zip mingw-w64-i686-make
-
-# Delete the existing mingw64 at C: to avoid conflicting
-rm -rf /c/mingw64/bin
 
 cp -r * /home/
 cd /home
@@ -34,7 +27,7 @@ cp -f ./setup.h ./wxWidgets-${WXMSW_VERSION}/include/wx/msw/
 cp -f ./config.gcc ./wxWidgets-${WXMSW_VERSION}/build/msw/
 cd wxWidgets-${WXMSW_VERSION}/build/msw
 mingw32-make -f makefile.gcc setup_h
-mingw32-make -f makefile.gcc -j$(nproc)
+mingw32-make -f makefile.gcc -j16
 
 cp /home/setup.h /home/wxWidgets-${WXMSW_VERSION}/lib/
 

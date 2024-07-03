@@ -5,7 +5,7 @@ set -eux
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
 WXMSW_VERSION=3.2.5
-BUILD_NO=14-stl-cb
+BUILD_NO=15-stl-shared
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
 
@@ -16,7 +16,8 @@ cd /home
 wget https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0posix-18.1.7-12.0.0-ucrt-r2/winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.7z
 # 7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
 7z x winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.7z -r -o/home
-cp -rf ./mingw32/* /mingw32/
+
+export PATH=/home/mingw32/bin/:$PATH
 
 wget https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2
@@ -30,6 +31,9 @@ mingw32-make -f makefile.gcc setup_h
 mingw32-make -f makefile.gcc -j16
 
 cp /home/setup.h /home/wxWidgets-${WXMSW_VERSION}/lib/
+
+# Remove junk files in lib directory.
+rm -f /home/wxWidgets-${WXMSW_VERSION}/lib/*.opt /home/wxWidgets-${WXMSW_VERSION}/lib/*.sh
 
 7zr a -mx9 -mqs=on -mmt=on /home/${NAME}-${BUILD_NO}.7z /home/wxWidgets-${WXMSW_VERSION}/lib
 

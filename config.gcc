@@ -38,7 +38,7 @@ LDFLAGS ?=
 CPP ?= $(CC) -E
 
 # What type of library to build? [0,1]
-SHARED ?= 0
+SHARED ?= 1
 
 # GTK+ toolkit version [,2]
 TOOLKIT_VERSION ?= 

@@ -23,10 +23,10 @@ CC = clang
 CXX = clang++
 
 # Standard flags for CC 
-CFLAGS ?= 
+CFLAGS ?= -Wno-unused-command-line-argument -Wno-deprecated-non-prototype
 
 # Standard flags for C++ 
-CXXFLAGS ?= -std=c++20
+CXXFLAGS ?= -std=c++20 -Wno-unused-command-line-argument
 
 # Standard preprocessor flags (common for CC and CXX) 
 CPPFLAGS ?= 

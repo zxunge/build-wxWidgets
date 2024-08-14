@@ -3,7 +3,8 @@
 name: build-wxWidgets
 
 # Controls when the workflow will run
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,6 +23,8 @@ jobs:
           update: true
           install: >-
             p7zip
+            mingw-w64-i686-clang
+            mingw-w64-i686-llvm
             mingw-w64-i686-toolchain
 
       - name: build wxWidgets

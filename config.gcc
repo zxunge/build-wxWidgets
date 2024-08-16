@@ -17,16 +17,18 @@ LINK_DLL_FLAGS ?= -shared
 LINK_MODULE_FLAGS ?= -shared
 
 # C compiler 
-CC = clang
+CC = gcc
 
 # C++ compiler 
-CXX = clang++
+CXX = g++
 
 # Standard flags for CC 
-CFLAGS ?= -Wno-unused-command-line-argument -Wno-deprecated-non-prototype
+#CFLAGS ?= -Wno-unused-command-line-argument -Wno-deprecated-non-prototype
+CFLAGS ?= 
 
 # Standard flags for C++ 
-CXXFLAGS ?= -std=c++20 -Wno-unused-command-line-argument
+#CXXFLAGS ?= -std=c++20 -Wno-unused-command-line-argument
+CXXFLAGS ?= 
 
 # Standard preprocessor flags (common for CC and CXX) 
 CPPFLAGS ?= 

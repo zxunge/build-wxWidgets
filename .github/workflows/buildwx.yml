@@ -23,9 +23,12 @@ jobs:
           update: true
           install: >-
             p7zip
+            mingw-w64-i686-toolchain
+            ninja
+            mingw-w64-i686-cmake
 #            mingw-w64-i686-clang
 #            mingw-w64-i686-llvm
-#            mingw-w64-i686-toolchain
+            
 
       - name: build wxWidgets
         shell: msys2 {0}

@@ -29,8 +29,8 @@ wget -q https://cef-builds.spotifycdn.com/cef_binary_100.0.24%2Bg0783cf8%2Bchrom
 tar -jxf ./cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal.tar.bz2
 cd cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal/
 mkdir build && cd $_
-cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DUSE_SANDBOX=OFF ..
-ninja cefclient cefsimple
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUSE_SANDBOX=OFF ..
+make -j$(nproc) cefclient cefsimple
 ls
 
 # Build wxWidgets

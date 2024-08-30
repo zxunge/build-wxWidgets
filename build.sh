@@ -5,7 +5,7 @@ set -eux
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
 WXMSW_VERSION=3.2.5
-BUILD_NO=21-stl-cb-winlibs1420
+BUILD_NO=22-stl-shared-msys2-cef
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
 
@@ -16,14 +16,22 @@ cd /home
 #wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.1.0posix-18.1.7-12.0.0-ucrt-r2/winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.7z
 # 7z x gcc-v${GCC_VERSION}-mingw-w64-v${MINGW_VERSION}-i686.7z -r -o/home
 #7z x winlibs-i686-posix-dwarf-gcc-14.1.0-mingw-w64ucrt-12.0.0-r2.7z -r -o/home
-wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-i686-posix-dwarf-gcc-14.2.0-mingw-w64ucrt-12.0.0-r1.7z
-7z x winlibs-i686-posix-dwarf-gcc-14.2.0-mingw-w64ucrt-12.0.0-r1.7z -o/home
+#wget -q https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-i686-posix-dwarf-gcc-14.2.0-mingw-w64ucrt-12.0.0-r1.7z
+#7z x winlibs-i686-posix-dwarf-gcc-14.2.0-mingw-w64ucrt-12.0.0-r1.7z -o/home
 
-export PATH=/home/mingw32/bin/:$PATH
+#export PATH=/home/mingw32/bin/:$PATH
 
 wget -q https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2
-7z x webview2.nupkg -o./wxWidgets-${WXMSW_VERSION}/3rdparty/webview2
+#7z x webview2.nupkg -o./wxWidgets-${WXMSW_VERSION}/3rdparty/webview2
+
+wget -q https://cef-builds.spotifycdn.com/cef_binary_100.0.24%2Bg0783cf8%2Bchromium-100.0.4896.127_windows32_minimal.tar.bz2
+tar -jxf ./cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal.tar.bz2
+cd cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal/
+mkdir build && cd $_
+cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DUSE_SANDBOX=OFF ..
+ninja cefclient cefsimple
+ls
 
 # Build wxWidgets
 cp -f ./setup.h ./wxWidgets-${WXMSW_VERSION}/include/wx/msw/

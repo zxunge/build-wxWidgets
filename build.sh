@@ -4,8 +4,8 @@ set -eux
 
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
-WXMSW_VERSION=3.2.5
-BUILD_NO=22-stl-shared-msys2-cef
+WXMSW_VERSION=3.2.6
+BUILD_NO=22-stl-shared-msys2
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
 
@@ -23,15 +23,15 @@ cd /home
 
 wget -q https://github.com/wxWidgets/wxWidgets/releases/download/v${WXMSW_VERSION}/wxWidgets-${WXMSW_VERSION}.tar.bz2
 tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2
-#7z x webview2.nupkg -o./wxWidgets-${WXMSW_VERSION}/3rdparty/webview2
+7z x webview2.nupkg -o./wxWidgets-${WXMSW_VERSION}/3rdparty/webview2
 
-wget -q https://cef-builds.spotifycdn.com/cef_binary_100.0.24%2Bg0783cf8%2Bchromium-100.0.4896.127_windows32_minimal.tar.bz2
-tar -jxf ./cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal.tar.bz2
-cd cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal/
-mkdir build && cd $_
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUSE_SANDBOX=OFF ..
-make -j$(nproc) cefclient cefsimple
-ls
+#wget -q https://cef-builds.spotifycdn.com/cef_binary_100.0.24%2Bg0783cf8%2Bchromium-100.0.4896.127_windows32_minimal.tar.bz2
+#tar -jxf ./cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal.tar.bz2
+#cd cef_binary_100.0.24+g0783cf8+chromium-100.0.4896.127_windows32_minimal/
+#mkdir build && cd $_
+#cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUSE_SANDBOX=OFF ..
+#make -j$(nproc) cefclient cefsimple
+#ls
 
 # Build wxWidgets
 cp -f ./setup.h ./wxWidgets-${WXMSW_VERSION}/include/wx/msw/
@@ -39,8 +39,6 @@ cp -f ./config.gcc ./wxWidgets-${WXMSW_VERSION}/build/msw/
 cd wxWidgets-${WXMSW_VERSION}/build/msw
 mingw32-make -f makefile.gcc setup_h
 mingw32-make -f makefile.gcc -j$(nproc)
-
-cp /home/setup.h /home/wxWidgets-${WXMSW_VERSION}/lib/
 
 # Remove junk files in lib directory.
 rm -f /home/wxWidgets-${WXMSW_VERSION}/lib/*.opt /home/wxWidgets-${WXMSW_VERSION}/lib/*.sh

@@ -44,7 +44,7 @@
 // in the version after it completely.
 //
 // Recommended setting: 0 (please update your code)
-#define WXWIN_COMPATIBILITY_3_0 1
+#define WXWIN_COMPATIBILITY_3_0 0
 
 // MSW-only: Set to 0 for accurate dialog units, else 1 for old behaviour when
 // default system font is used for wxWindow::GetCharWidth/Height() instead of
@@ -317,7 +317,7 @@
 // Recommended setting: 0 as the options below already provide a relatively
 // good level of interoperability and changing this option arguably isn't worth
 // diverging from the official builds of the library.
-#define wxUSE_STL 0
+#define wxUSE_STL 1
 
 // This is not a real option but is used as the default value for
 // wxUSE_STD_IOSTREAM, wxUSE_STD_STRING and wxUSE_STD_CONTAINERS_COMPATIBLY.
@@ -348,7 +348,7 @@
 //
 // Recommended setting: 1 unless compatibility with the official wxWidgets
 // build and/or the existing code is a concern.
-#define wxUSE_STD_CONTAINERS 0
+#define wxUSE_STD_CONTAINERS 1
 
 // Use standard C++ streams if 1 instead of wx streams in some places. If
 // disabled, wx streams are used everywhere and wxWidgets doesn't depend on the
@@ -797,7 +797,7 @@
 // Default is 0 because WebView2 is not always available, set it to 1 if you do have it.
 //
 // Recommended setting: 1 when building for Windows with WebView2 SDK
-#define wxUSE_WEBVIEW_EDGE 0
+#define wxUSE_WEBVIEW_EDGE 1
 
 // Use the Edge (Chromium) wxWebView backend without loader DLL
 //
@@ -1530,7 +1530,7 @@
 // ----------------------------------------------------------------------------
 
 // Set to 1 for PostScript device context.
-#define wxUSE_POSTSCRIPT  0
+#define wxUSE_POSTSCRIPT  1
 
 // Set to 1 to use font metric files in GetTextExtent
 #define wxUSE_AFM_FOR_POSTSCRIPT 1
@@ -1593,7 +1593,7 @@
 #define wxUSE_PCX           1
 
 // Set to 1 for IFF format support (Amiga format)
-#define wxUSE_IFF           0
+#define wxUSE_IFF           1
 
 // Set to 1 for XPM format support
 #define wxUSE_XPM           1
@@ -1648,7 +1648,7 @@
 #if defined(_MSC_VER) && _MSC_VER >= 1600
     #define wxUSE_GRAPHICS_DIRECT2D wxUSE_GRAPHICS_CONTEXT
 #else
-    #define wxUSE_GRAPHICS_DIRECT2D 0
+    #define wxUSE_GRAPHICS_DIRECT2D 1
 #endif
 
 // wxWebRequest backend based on WinHTTP.
@@ -1821,7 +1821,7 @@
 #if defined(__VISUALC__) || defined(__MINGW64_TOOLCHAIN__)
     #define wxUSE_DBGHELP 1
 #else
-    #define wxUSE_DBGHELP 0
+    #define wxUSE_DBGHELP 1
 #endif
 
 // Set this to 1 to be able to use wxCrashReport::Generate() to create mini

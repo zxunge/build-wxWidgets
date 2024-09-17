@@ -34,8 +34,8 @@ tar -jxf ./wxWidgets-${WXMSW_VERSION}.tar.bz2
 #ls
 
 # Build wxWidgets
-cp -f ./setup.h ./wxWidgets-${WXMSW_VERSION}/include/wx/msw/
-cp -f ./config.gcc ./wxWidgets-${WXMSW_VERSION}/build/msw/
+cp -f ./include/wx/msw/setup.h ./wxWidgets-${WXMSW_VERSION}/include/wx/msw/
+cp -f ./build/msw/config.gcc ./wxWidgets-${WXMSW_VERSION}/build/msw/
 cd wxWidgets-${WXMSW_VERSION}/build/msw
 mingw32-make -f makefile.gcc setup_h
 mingw32-make -f makefile.gcc -j$(nproc)

@@ -65,7 +65,7 @@ DEBUG_INFO ?= default
 DEBUG_FLAG ?= 1
 
 # Multiple libraries or single huge monolithic one? [0,1]
-MONOLITHIC ?= 0
+MONOLITHIC ?= 1
 
 # Build GUI libraries? [0,1]
 USE_GUI ?= 1
@@ -125,7 +125,7 @@ USE_CAIRO ?= 0
 OFFICIAL_BUILD ?= 0
 
 # Use this to name your customized DLLs differently 
-VENDOR ?= custom
+VENDOR ?= cb
 
 #  
 WX_FLAVOUR ?= 

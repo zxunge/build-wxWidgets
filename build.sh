@@ -5,7 +5,7 @@ set -eux
 GCC_VERSION=10.5.0
 MINGW_VERSION=6.0.1
 WXMSW_VERSION=3.2.6
-BUILD_NO=23-stl-shared-winlibs1420
+BUILD_NO=23-stl-shared-cb-winlibs1420
 HOME=$(cygpath -m /home)
 NAME=wxWidgets-${WXMSW_VERSION}
 

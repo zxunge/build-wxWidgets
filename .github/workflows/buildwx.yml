@@ -23,8 +23,7 @@ jobs:
           update: true
           install: >-
             p7zip
-            base-devel
-            mingw-w64-i686-toolchain
+#            mingw-w64-i686-toolchain
 #            mingw-w64-i686-gtk3
 #            mingw-w64-i686-cmake
 #            mingw-w64-i686-clang
